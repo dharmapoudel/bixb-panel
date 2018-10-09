@@ -1,0 +1,101 @@
+<resources>
+    <string name="app_name">BxPanel</string>
+    <string name="app_settings">BxPanel Settings</string>
+    <string name="app_settings_description">change BxPanel app configurations</string>
+
+    <string name="show_on_right">Switch side</string>
+    <string name="show_on_right_description">display BxPanel on right</string>
+
+    <string name="remember_last_position">Remember last position</string>
+    <string name="remember_last_position_description">start from the last item selected</string>
+
+    <string name="auto_trigger">Auto open</string>
+    <string name="auto_trigger_description">automatically open currently selected item</string>
+
+    <string name="auto_close">Auto close</string>
+    <string name="auto_close_description">automatically close panel</string>
+
+    <string name="trigger_vibration_description">vibrate when an item is clicked</string>
+    <string name="trigger_vibration">Vibration</string>
+
+    <string name="wait_on_first">Skip First</string>
+    <string name="wait_on_first_description">prevent first item from opening automatically</string>
+
+    <string name="auto_trigger_after_summary">Auto open item after(ms)</string>
+    <string name="auto_close_after_summary">Auto close panel after(ms)</string>
+    <string name="trigger_duration_summary">Vibration duration(ms)</string>
+
+    <string name="no_of_panel_items_summary">Number of items in panel</string>
+
+    <string name="panel_items">Panel Items</string>
+    <string name="panel_settings">Panel Settings</string>
+    <string name="panel_item_settings">Panel Item Settings</string>
+    <string name="close_panel_on_item_click_description">close panel when an item is clicked</string>
+    <string name="close_panel_on_item_click">Close panel</string>
+
+
+    <string name="panel_item_description">select an action</string>
+    <string name="panel_item">Panel Item</string>
+    <string name="panel_item_permission">any permissions needed will be listed here</string>
+
+
+    <string name="accessibility">turn on \'BxPanel\' in settings > accessibility</string>
+    <string name="storage">Needs storage permission</string>
+    <string name="restart">Needs device restart</string>
+
+
+
+
+    <string name="tips_title">Need Permission!</string>
+    <string name="tips_ok">OK</string>
+    <string name="tips_copy">COPY</string>
+    <string name="copy_done">Copy Success</string>
+    <string name="tips">Before use this Application, you need to use adb tools to grant permission, copy below command and exec it on a PC:\n\n%1$s\n\nOr you can use root to grant permission.</string>
+    <string name="root_failure">root permission not granted</string>
+
+
+    <string name="greyscale">Greyscale</string>
+    <string name="greyscale_description">Turn on black and white mode</string>
+
+    <string name="max_volume">Max Volume </string>
+    <string name="max_volume_description">Disable max volume warning</string>
+
+    <string name="max_brightness">Max Brightness</string>
+    <string name="max_brightness_description">Disable max brightness warning</string>
+
+    <string name="animation_scale">Animation Scale</string>
+    <string name="animation_scale_description">Change animation scale to .25</string>
+
+
+    <string name="support">Support</string>
+    <string name="donate">Support Development</string>
+    <string name="donate_description">If you enjoy using SamFix consider supporting.</string>
+
+    <string name="rate">Rate App</string>
+    <string name="rate_description">Happy with the app? Give us 5 star review.</string>
+
+    <string name="mail">Send Email</string>
+    <string name="mail_description">Bugs? Feature request? Send us an email.</string>
+
+    <string name="thank_you">Thank you for supporting!</string>
+    <string name="next_time">Appreciate your intention. Next time perhaps!</string>
+
+
+    <string name="backup">App Backup</string>
+    <string name="backup_description">Automatically backup newly installed apps</string>
+
+    <string name="btwifi_popup">No BT/WIFI popup</string>
+    <string name="btwifi_popup_description">Disable popup on bluetooth and wifi</string>
+
+    <string name="location_popup">No location dialog</string>
+    <string name="location_popup_description">Disable location dialog in GM</string>
+
+    <string name="mobile_data">Mobile data</string>
+    <string name="data">Toggle data</string>
+    <string name="data_description">toggle data directly from the app</string>
+    <string name="select_app">select from the list of apps</string>
+    <string name="open_app">Open App</string>
+    <string name="select_apps">Select an app</string>
+
+
+</resources>

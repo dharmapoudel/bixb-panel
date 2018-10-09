@@ -1,0 +1,51 @@
+<resources>
+    <attr name="appBackground" format="reference|color" />
+    <attr name="primaryText" format="reference|color" />
+    <attr name="secondaryText" format="reference|color" />
+    <attr name="accentColor" format="reference|color" />
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/primary</item>
+
+        <item name="android:textColorPrimary">@color/primaryText</item>
+        <item name="android:textColorSecondary">@color/secondaryText</item>
+
+        <item name="android:navigationBarColor">@color/primary</item>
+        <item name="android:windowBackground">@color/white</item>
+
+        <item name="primaryText">@color/primaryText</item>
+        <item name="secondaryText">@color/secondaryText</item>
+        <item name="accentColor">@color/primary</item>
+        <item name="appBackground">@color/white</item>
+
+        <item name="cardViewStyle">@style/CardView</item>
+    </style>
+
+
+    <style name="PanelTheme" parent="@android:style/Theme.Material.Light.Dialog">
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorAccent">@color/primary</item>
+        <item name="appBackground">@color/white</item>
+    </style>
+
+
+    <style name="BxPanelDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!--item RadioButton or CheckBox color-->
+        <item name="colorControlNormal">?primaryText</item>
+        <item name="colorControlActivated">?accentColor</item>
+        <!--item text color-->
+        <item name="textColorAlertDialogListItem">?primaryText</item>
+        <!--buttons color-->
+        <item name="colorAccent">?accentColor</item>
+        <!--title and message color-->
+        <item name="android:textColorPrimary">?primaryText</item>
+        <!--dialog background-->
+        <item name="android:windowBackground">@drawable/background_drawable</item>
+    </style>
+
+
+</resources>

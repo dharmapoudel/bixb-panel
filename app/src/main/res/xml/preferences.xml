@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bxpanel="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/panel_settings">
+
+        <!--show on right-->
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="show_on_right"
+            android:summary="@string/show_on_right_description"
+            android:title="@string/show_on_right" />
+
+        <!-- panel auto close -->
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="auto_close"
+            android:summary="@string/auto_close_description"
+            android:title="@string/auto_close" />
+
+        <!--panel auto close interval-->
+        <com.dharmapoudel.bxpanel.SeekBarPreference
+            android:key="auto_close_after"
+            bxpanel:current="3000"
+            bxpanel:max="6000"
+            bxpanel:min="500"
+            android:summary="@string/auto_close_after_summary"/>
+
+        <!--number of items in panel-->
+        <com.dharmapoudel.bxpanel.SeekBarPreference
+            android:key="no_of_items"
+            bxpanel:current="5"
+            bxpanel:max="10"
+            bxpanel:min="1"
+            android:summary="@string/no_of_panel_items_summary"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/panel_item_settings">
+
+        <!--remember last position-->
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="remember_last_position"
+            android:summary="@string/remember_last_position_description"
+            android:title="@string/remember_last_position" />
+
+        <!--panel item auto trigger-->
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="auto_trigger"
+            android:summary="@string/auto_trigger_description"
+            android:title="@string/auto_trigger" />
+
+        <!--panel item auto trigger interval-->
+        <com.dharmapoudel.bxpanel.SeekBarPreference
+            bxpanel:current="2000"
+            bxpanel:max="5000"
+            bxpanel:min="300"
+            android:key="auto_trigger_after"
+            android:summary="@string/auto_trigger_after_summary"/>
+
+        <!--panel item trigger vibration-->
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="trigger_vibration"
+            android:summary="@string/trigger_vibration_description"
+            android:title="@string/trigger_vibration" />
+
+        <!--panel item trigger vibration duration-->
+        <com.dharmapoudel.bxpanel.SeekBarPreference
+            android:key="trigger_duration"
+            bxpanel:current="2"
+            bxpanel:max="50"
+            bxpanel:min="1"
+            android:summary="@string/trigger_duration_summary"/>
+
+        <!--wait on first panel item / skip auto trigger for first item-->
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="wait_on_first"
+            android:summary="@string/wait_on_first_description"
+            android:title="@string/wait_on_first"
+            android:dependency="auto_trigger"/>
+
+        <!--close panel on item click-->
+       <!-- <SwitchPreference
+            android:defaultValue="true"
+            android:visibility="gone"
+            android:key="close_panel_on_item_click"
+            android:summary="@string/close_panel_on_item_click_description"
+            android:title="@string/close_panel_on_item_click" />-->
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
