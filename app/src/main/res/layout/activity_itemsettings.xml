@@ -1,57 +1,472 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?appBackground"
-    android:weightSum="10"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:weightSum="10">
 
-    <android.support.v7.widget.CardView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:elevation="2dp"
-        app:cardCornerRadius="10dp"
-        tools:style="@style/CardView">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center_horizontal"
-            android:minHeight="15dp"
-            android:onClick="showAppSelectDialog"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_margin="15dp"
-                android:background="@drawable/apps_icon"
-                android:contentDescription="@string/select_app" />
-
-            <LinearLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
+                android:layout_margin="6dp"
+                android:elevation="0dp"
+                app:cardCornerRadius="10dp"
+                tools:style="@style/CardView">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:gravity="center_vertical"
-                    android:text="@string/select_app"
-                    android:textSize="16sp"
-                    android:textColor="@color/primaryText" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/panelItems">
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="showAppSelectDialog"
+                        android:tag="0"
+                        android:gravity="center_horizontal"
+                        android:minHeight="15dp"
+                        android:orientation="horizontal"
+                        >
+
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/apps_icon"
+                            android:contentDescription="@string/apps" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/apps"
+                                android:textColor="@color/primaryText" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/select_app"
+                                android:textColor="@color/secondaryText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:elevation="0dp"
+                app:cardCornerRadius="10dp"
+                tools:style="@style/CardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="selectNavigationAction"
+                        android:tag="1"
+                        android:gravity="center_horizontal"
+                        android:minHeight="15dp"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/navigation_home"
+                            android:contentDescription="@string/navigation_home" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/navigation_home"
+                                android:textColor="@color/primaryText" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/navigation"
+                                android:textColor="@color/secondaryText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="selectNavigationAction"
+                        android:tag="2"
+                        android:gravity="center_horizontal"
+                        android:minHeight="15dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/navigation_recents"
+                            android:contentDescription="@string/navigation_recent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/navigation_recent"
+                                android:textColor="@color/primaryText" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/navigation"
+                                android:textColor="@color/secondaryText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="selectNavigationAction"
+                        android:tag="3"
+                        android:gravity="center_horizontal"
+                        android:minHeight="15dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/navigation_back"
+                            android:contentDescription="@string/navigation_back" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/navigation_back"
+                                android:textColor="@color/primaryText" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/navigation"
+                                android:textColor="@color/secondaryText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:elevation="0dp"
+                app:cardCornerRadius="10dp"
+                tools:style="@style/CardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="selectMediaAction"
+                        android:tag="4"
+                        android:gravity="center_horizontal"
+                        android:minHeight="15dp"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/media_playpause"
+                            android:contentDescription="@string/media_playpause" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/media_playpause"
+                                android:textColor="@color/primaryText" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/media"
+                                android:textColor="@color/secondaryText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="selectMediaAction"
+                        android:tag="5"
+                        android:gravity="center_horizontal"
+                        android:minHeight="15dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/media_previous"
+                            android:contentDescription="@string/media_previous" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/media_previous"
+                                android:textColor="@color/primaryText" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/media"
+                                android:textColor="@color/secondaryText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="selectMediaAction"
+                        android:tag="6"
+                        android:gravity="center_horizontal"
+                        android:minHeight="15dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/media_next"
+                            android:contentDescription="@string/media_next" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/media_next"
+                                android:textColor="@color/primaryText" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/media"
+                                android:textColor="@color/secondaryText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:elevation="0dp"
+                app:cardCornerRadius="10dp"
+                tools:style="@style/CardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="selectUtilityAction"
+                        android:tag="7"
+                        android:gravity="center_horizontal"
+                        android:minHeight="15dp"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/util_flashlight"
+                            android:contentDescription="@string/util_flashlight" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/util_flashlight"
+                                android:textColor="@color/primaryText" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/utils"
+                                android:textColor="@color/secondaryText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="selectUtilityAction"
+                        android:tag="8"
+                        android:gravity="center_horizontal"
+                        android:minHeight="15dp"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/util_wifi"
+                            android:contentDescription="@string/util_wifi" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/util_wifi"
+                                android:textColor="@color/primaryText" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/utils"
+                                android:textColor="@color/secondaryText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+
+    </ScrollView>
 </LinearLayout>

@@ -104,11 +104,14 @@ public class PanelActivity extends Activity {
             ImageView imageView = (ImageView)((ViewGroup) panelItem).getChildAt(0);
             imageView.setBackground(null);
 
-            Drawable albumArtPath = Util.getIconFromTag(i, getApplicationContext());
 
-            Glide.with(getApplicationContext()).load(albumArtPath)
-                    //.apply(new RequestOptions().placeholder(R.drawable.add_icon))
-                    .into(imageView);
+            String type = prefs.getString(Constants.LIST_ITEM+"_"+i+"_type", "");
+            String action = prefs.getString(Constants.LIST_ITEM+"_"+i+"_action", "");
+            String extra = prefs.getString(Constants.LIST_ITEM+"_"+i+"_extra", "");
+
+            Drawable albumArtPath = IconFactory.getIconFromTag(type, action, extra, getApplicationContext());
+            Glide.with(getApplicationContext()).load(albumArtPath).into(imageView);
+
             panel.addView(panelItem);
         }
     }
@@ -228,6 +231,7 @@ public class PanelActivity extends Activity {
             public void onAnimationEnd(Animation animation) {
                 //perform action
                 String actionType = prefs.getString(Constants.LIST_ITEM + "_" + v.getTag().toString() + "_type", "");
+                assert actionType != null;
                 ActionFactory.getActionInstance(actionType).performAction(v, prefs);
 
                 //close panel

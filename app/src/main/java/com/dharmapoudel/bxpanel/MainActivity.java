@@ -1,5 +1,6 @@
 package com.dharmapoudel.bxpanel;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
@@ -70,10 +71,11 @@ public class MainActivity extends AppCompatActivity implements  BillingProcessor
         for(int i = 0 ; i < count; i++ ){
             String type = prefs.getString(Constants.LIST_ITEM+"_"+i+"_type", "");
             String action = prefs.getString(Constants.LIST_ITEM+"_"+i+"_action", "");
+            String extra = prefs.getString(Constants.LIST_ITEM+"_"+i+"_extra", "");
             View linearLayout =  panelItemsLayout.getChildAt(i);
 
-            updatePanelItemText(linearLayout, type, action);
-            updatePanelItemIcon(i, (ImageView)((ViewGroup) linearLayout).getChildAt(0));
+            updatePanelItemText(linearLayout, type, action, extra);
+            updatePanelItemIcon(linearLayout, type, action, extra);
 
             panelItemsLayout.getChildAt(i).setVisibility(View.VISIBLE);
         }
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements  BillingProcessor
         for(int i = count; i < 10; i++ ){
             editor.remove(Constants.LIST_ITEM+"_"+i+"_type");
             editor.remove(Constants.LIST_ITEM+"_"+i+"_action");
-            editor.remove(Constants.LIST_ITEM+"_"+i+"_package");
+            editor.remove(Constants.LIST_ITEM+"_"+i+"_extra");
             editor.apply();
             panelItemsLayout.getChildAt(i).setVisibility(View.GONE);
         }
@@ -127,11 +129,10 @@ public class MainActivity extends AppCompatActivity implements  BillingProcessor
         startActivity(intent);
     }
 
-    private void updatePanelItemText(View view, String actionType, String action){
+    private void updatePanelItemText(View view, String actionType, String action, String extra){
         ViewGroup vg = (ViewGroup) ((ViewGroup) view).getChildAt(1);
 
-
-        String itemText = Constants.ACTION_OPEN_APP.equalsIgnoreCase(actionType) ? getString(R.string.open_app): getString(R.string.panel_item);
+        String itemText =  getActionText(actionType); //Constants.ACTION_OPEN_APP.equalsIgnoreCase(actionType) ? getString(R.string.open_app): getString(R.string.panel_item);
         TextView textViewTitle =   (TextView) vg.getChildAt(0);
         textViewTitle.setText(itemText);
 
@@ -141,10 +142,39 @@ public class MainActivity extends AppCompatActivity implements  BillingProcessor
     }
 
 
-    private void updatePanelItemIcon(int i, ImageView imageView){
+    private void updatePanelItemIcon(View view, String actionType, String action, String extra){
+        ImageView imageView = (ImageView)((ViewGroup) view).getChildAt(0);
         imageView.setBackground(null);
-        Drawable iconDrawable = Util.getIconFromTag(i, getApplicationContext());
+        Drawable iconDrawable = IconFactory.getIconFromTag(actionType, action, extra, view.getContext());
         Glide.with(getApplicationContext()).load(iconDrawable).into(imageView);
     }
+
+    private String getActionText( String actionType) {
+
+        int actionText;
+        switch(actionType){
+            case Constants.ACTION_OPEN_APP:
+                actionText = R.string.open_app;
+                break;
+
+            case Constants.ACTION_NAVIGATE:
+                actionText =  R.string.navigation;
+                break;
+
+            case Constants.ACTION_MEDIA:
+                actionText =  R.string.media;
+                break;
+
+            case Constants.ACTION_UTILS:
+                actionText = R.string.utils;
+                break;
+
+            default:
+                actionText = R.string.panel_item;
+        }
+
+        return getResources().getString(actionText);
+    }
+
 
 }

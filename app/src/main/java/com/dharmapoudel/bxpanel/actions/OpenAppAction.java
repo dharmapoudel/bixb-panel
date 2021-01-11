@@ -16,7 +16,7 @@ public class OpenAppAction implements Action{
     @Override
     public void performAction(View v, SharedPreferences prefs) {
         String viewTag = v.getTag().toString();
-        String packageName = prefs.getString(Constants.LIST_ITEM + "_" + viewTag + "_package", "");
+        String packageName = prefs.getString(Constants.LIST_ITEM + "_" + viewTag + "_extra", "");
 
         Log.i(TAG, "opening app: " + prefs.getString(Constants.LIST_ITEM + "_" + viewTag + "_action", ""));
         startNewActivity(v.getContext(), packageName);

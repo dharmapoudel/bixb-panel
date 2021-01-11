@@ -9,13 +9,24 @@ public class ActionFactory {
         Action action;
 
         switch(actionType){
+
+            case Constants.ACTION_NAVIGATE:
+                action = new NavigateAction();
+                break;
+
+            case Constants.ACTION_MEDIA:
+                action = new MediaAction();
+                break;
+
+            case Constants.ACTION_UTILS:
+                action = new UtilAction();
+                break;
+
             case Constants.ACTION_OPEN_APP:
+            default:
                 action = new OpenAppAction();
                 break;
 
-
-            default:
-                action = new OpenAppAction();
         }
         return action;
 

@@ -12,7 +12,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -109,9 +108,6 @@ public class PanelItemSettingActivity extends AppCompatActivity implements  Bill
         builder.setView(dialogView);
         builder.setTitle(view.getContext().getResources().getString(R.string.select_apps));
 
-
-        Log.e(TAG, "setting action for panel item: " + intent.getStringExtra(Constants.CURRENT_ITEM));
-
         String viewIndex = intent.getStringExtra(Constants.CURRENT_ITEM);
         String currentApp = prefs.getString(Constants.LIST_ITEM+"_"+viewIndex+"_action", "");
         CharSequence[] installedApps = applicationMap.keySet().toArray(new CharSequence[applicationMap.size()]);
@@ -124,10 +120,13 @@ public class PanelItemSettingActivity extends AppCompatActivity implements  Bill
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString(Constants.LIST_ITEM+"_"+viewIndex+"_type", Constants.ACTION_OPEN_APP);
             editor.putString(Constants.LIST_ITEM+"_"+viewIndex+"_action", appName);
-            editor.putString(Constants.LIST_ITEM+"_"+viewIndex+"_package", packageName);
+            editor.putString(Constants.LIST_ITEM+"_"+viewIndex+"_extra", packageName);
             editor.apply();
             //close the dialog
             dialog.dismiss();
+
+            Toast.makeText(view.getContext(), "Action Set to open "+ appName, Toast.LENGTH_SHORT).show();
+            finish();
         });
 
         AlertDialog alertDialog = builder.create();
@@ -173,5 +172,81 @@ public class PanelItemSettingActivity extends AppCompatActivity implements  Bill
                 .sorted(Map.Entry.comparingByKey())
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
+
+    public void selectNavigationAction(View view) {
+
+        String viewIndex = intent.getStringExtra(Constants.CURRENT_ITEM);
+        int viewId =  Integer.valueOf(view.getTag().toString());
+        String action = (viewId > 1) ? ( viewId > 2 ? Constants.BACK : Constants.RECENTS) : Constants.HOME;
+
+        //update the preferences
+        updateItemPreferences(viewIndex, Constants.ACTION_NAVIGATE, action, "");
+
+
+        //show toast mesage briefly
+        Toast.makeText(view.getContext(), "Action Set to navigate "+ action, Toast.LENGTH_SHORT).show();
+        finish();
+
+    }
+
+    public void selectUtilityAction(View view) {
+
+        String viewIndex = intent.getStringExtra(Constants.CURRENT_ITEM);
+        String action = getActionFromViewId(Integer.valueOf(view.getTag().toString()));
+
+        //update the preferences
+        updateItemPreferences(viewIndex, Constants.ACTION_UTILS, action, "");
+
+        //show toast mesage briefly
+        Toast.makeText(view.getContext(), "Action Set to utility  "+ action, Toast.LENGTH_SHORT).show();
+        finish();
+
+    }
+
+    public void selectMediaAction(View view) {
+
+        String viewIndex = intent.getStringExtra(Constants.CURRENT_ITEM);
+        String action = getActionFromViewId(Integer.valueOf(view.getTag().toString()));
+
+        //update the preferences
+        updateItemPreferences(viewIndex, Constants.ACTION_MEDIA, action, "");
+
+        //show toast mesage briefly
+        Toast.makeText(view.getContext(), "Action Set to media  "+ action, Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    private void updateItemPreferences(String viewIndex, String actionType, String action, String extra){
+        //update the preferences
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(Constants.LIST_ITEM+"_"+viewIndex+"_type", actionType);
+        editor.putString(Constants.LIST_ITEM+"_"+viewIndex+"_action", action);
+        editor.putString(Constants.LIST_ITEM+"_"+viewIndex+"_extra", extra);
+        editor.apply();
+    }
+
+    private String getActionFromViewId(int viewId) {
+        String action;
+        switch(viewId){
+            case 4:
+                action =  Constants.MEDIA_PLAYPAUSE;
+                break;
+            case 5:
+                action =  Constants.MEDIA_PREVIOUS;
+                break;
+            case 6:
+                action =  Constants.MEDIA_NEXT;
+                break;
+            case 7:
+                action =  Constants.FLASHLIGHT;
+                break;
+            case 8:
+            default:
+                action =  Constants.WIFI;
+                break;
+        }
+        return action;
+    }
+
 
 }

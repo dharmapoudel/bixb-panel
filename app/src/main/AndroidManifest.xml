@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.dharmapoudel.bxpanel">
 
     <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
@@ -10,6 +11,23 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" tools:ignore="ProtectedPermissions" />
+
+    <!-- Allows access to the flashlight -->
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <!--needed for media actions-->
+    <!--<uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" tools:ignore="ProtectedPermissions" />-->
+
+    <!--needed for toggling wifi-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
 
 
     <application
@@ -25,7 +43,8 @@
             android:label="@string/app_name"
             android:theme="@style/PanelTheme"
             android:excludeFromRecents="true"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance"
+            android:supportsPictureInPicture="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -36,7 +55,13 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme"/>
+            android:screenOrientation="portrait"
+            android:supportsPictureInPicture="true"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".PreferenceActivity"
@@ -48,6 +73,22 @@
             android:name=".PanelItemSettingActivity"
             android:label="@string/panel_item_settings"
             android:theme="@style/AppTheme"/>
+
+
+        <!--<activity android:theme="@android:style/Theme.DeviceDefault.Panel" android:name=".ScreenshotActivity" android:process=":screenshot" android:taskAffinity="" android:excludeFromRecents="true" />
+        <activity android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:name=".BlankActivity" android:configChanges="keyboardHidden" android:noHistory="true" />
+-->
+        <service android:name=".BxPanelAccessibilityService"
+            android:label="@string/app_name"
+            android:exported="false"
+            android:stopWithTask="false"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility_service_config" />
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+        </service>
 
     </application>
 

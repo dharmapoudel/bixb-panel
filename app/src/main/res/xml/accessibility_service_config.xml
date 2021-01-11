@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<accessibility-service
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeAllMask"
+    android:accessibilityFeedbackType="feedbackAllMask"
+    android:accessibilityFlags="flagDefault"
+    android:canRetrieveWindowContent="true"
+    android:canRequestTouchExplorationMode="true"
+    android:canRequestFilterKeyEvents="true"
+    android:notificationTimeout="0"
+    android:packageNames="com.dharmapoudel.bxpanel"
+    android:settingsActivity="com.dharmapoudel.bxpanel.MainActivity"
+    android:description="@string/accessibility_service_description"
+    />

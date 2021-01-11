@@ -17,5 +17,27 @@ public interface Constants {
     String AUTO_CLOSE_AFTER = "auto_close_after";
     String PRODUCT_ID = "bxpanel";
     String LICENSE_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx//FhYCIEAQAgj1yfnaD1nLcI41fWkkx05wefBOGK3RP5pFRoE6w1c63uxf7hmHjLbdm8oAqAvIgekadrmaSnt5aiAk3W8GdGFuLBdP1TgvfCFwAboBle/0Bj/Cr2kkQnUl39TkVmMqe6cUhz/W0pH3kn/BLfd9nsdBhy6AVFnpECfoc+pNZiJ5zEMWL67JGiHXG6/4BTGZ0AYEFsLhjVw/R5SSiLRqqbcMZeb50Iu5sULiACanJtTH4VYcr92FxqYWGeHXjkrcG37YJyiWt+ez7H+9bEKDF0GPgFmzx+bXU6apKhm9hbpnhwBiDA2vv5t1iQLwVjvDNMpft4ltlZQIDAQAB";
+
     String ACTION_OPEN_APP = "action_open_app";
+
+
+
+
+    String ACTION_NAVIGATE = "action_navigate";
+    String HOME = "Home";
+    String BACK = "Back";
+    String RECENTS = "Recents";
+
+    String ACTION_UTILS = "action_utils";
+    String FLASHLIGHT = "Flashlight";
+    String FLASHLIGHT_ON ="ON";
+    String FLASHLIGHT_OFF ="OFF";
+    String WIFI = "Wifi";
+
+    String ACTION_MEDIA = "action_media";
+    String MEDIA_PLAYPAUSE = "PlayPause" ;
+    String MEDIA_PREVIOUS = "Previous" ;
+    String MEDIA_NEXT = "Next" ;
+    String MEDIA_PLAY = "Play";
+    String MEDIA_PAUSE = "Pause";
 }

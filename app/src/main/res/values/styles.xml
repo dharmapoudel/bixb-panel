@@ -15,12 +15,14 @@
         <item name="android:textColorSecondary">@color/secondaryText</item>
 
         <item name="android:navigationBarColor">@color/primary</item>
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackground">@drawable/background_drawable</item>
+        <!--<item name="android:windowBackground">@color/white</item>-->
 
         <item name="primaryText">@color/primaryText</item>
         <item name="secondaryText">@color/secondaryText</item>
         <item name="accentColor">@color/primary</item>
         <item name="appBackground">@color/white</item>
+
 
         <item name="cardViewStyle">@style/CardView</item>
     </style>
@@ -30,6 +32,7 @@
         <item name="android:colorPrimary">@color/primary</item>
         <item name="android:colorAccent">@color/primary</item>
         <item name="appBackground">@color/white</item>
+        <!--<item name="android:windowBackground">@drawable/background_drawable</item>-->
     </style>
 
 

@@ -54,48 +54,42 @@
     <string name="root_failure">root permission not granted</string>
 
 
-    <string name="greyscale">Greyscale</string>
-    <string name="greyscale_description">Turn on black and white mode</string>
 
-    <string name="max_volume">Max Volume </string>
-    <string name="max_volume_description">Disable max volume warning</string>
+    <string name="accessibility_service_description">This uses accessibility service to provide functions such as recents. If you are not using those functions, this permission is optional.</string>
 
-    <string name="max_brightness">Max Brightness</string>
-    <string name="max_brightness_description">Disable max brightness warning</string>
-
-    <string name="animation_scale">Animation Scale</string>
-    <string name="animation_scale_description">Change animation scale to .25</string>
-
-
-    <string name="support">Support</string>
-    <string name="donate">Support Development</string>
-    <string name="donate_description">If you enjoy using SamFix consider supporting.</string>
+    <string name="support">Support Development</string>
+    <string name="support_description">If you enjoy using app consider supporting</string>
 
     <string name="rate">Rate App</string>
-    <string name="rate_description">Happy with the app? Give us 5 star review.</string>
+    <string name="rate_description">Happy with the app? Give us 5 star review</string>
 
     <string name="mail">Send Email</string>
-    <string name="mail_description">Bugs? Feature request? Send us an email.</string>
+    <string name="mail_description">Bugs? Feature request? Send us an email</string>
 
     <string name="thank_you">Thank you for supporting!</string>
     <string name="next_time">Appreciate your intention. Next time perhaps!</string>
 
 
-    <string name="backup">App Backup</string>
-    <string name="backup_description">Automatically backup newly installed apps</string>
-
-    <string name="btwifi_popup">No BT/WIFI popup</string>
-    <string name="btwifi_popup_description">Disable popup on bluetooth and wifi</string>
-
-    <string name="location_popup">No location dialog</string>
-    <string name="location_popup_description">Disable location dialog in GM</string>
-
-    <string name="mobile_data">Mobile data</string>
-    <string name="data">Toggle data</string>
-    <string name="data_description">toggle data directly from the app</string>
     <string name="select_app">select from the list of apps</string>
+    <string name="apps">Apps</string>
     <string name="open_app">Open App</string>
     <string name="select_apps">Select an app</string>
+
+    <string name="navigation_home">Home</string>
+    <string name="navigation_back">Back</string>
+    <string name="navigation_recent">Recents</string>
+    <string name="navigation">Navigation</string>
+
+
+    <string name="utils">Utility</string>
+    <string name="util_flashlight">Flashlight</string>
+    <string name="util_wifi">Toggle wifi</string>
+
+    <string name="media">Media</string>
+    <string name="media_next">Media next</string>
+    <string name="media_previous">Media previous</string>
+    <string name="media_playpause">Media play/pause</string>
+
 
 
 </resources>
