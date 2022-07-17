@@ -8,21 +8,22 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
 import com.anjlab.android.iab.v3.BillingProcessor;
-import com.anjlab.android.iab.v3.TransactionDetails;
+import com.anjlab.android.iab.v3.PurchaseInfo;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class PanelItemSettingActivity extends AppCompatActivity implements  BillingProcessor.IBillingHandler {
@@ -43,7 +44,7 @@ public class PanelItemSettingActivity extends AppCompatActivity implements  Bill
         setContentView(R.layout.activity_itemsettings);
 
         //remove the shadow
-        getSupportActionBar().setElevation(0);
+        Objects.requireNonNull(getSupportActionBar()).setElevation(0);
         getSupportActionBar().setTitle(R.string.app_name);
 
 
@@ -75,14 +76,12 @@ public class PanelItemSettingActivity extends AppCompatActivity implements  Bill
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (!bp.handleActivityResult(requestCode, resultCode, data)) {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
-    public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
-        Toast.makeText(getApplicationContext(), getResources().getString(R.string.thank_you), Toast.LENGTH_SHORT).show();
+    public void onProductPurchased(@NonNull String productId, @Nullable PurchaseInfo details) {
+        //Toast.makeText(getApplicationContext(), getResources().getString(R.string.thank_you), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -92,7 +91,7 @@ public class PanelItemSettingActivity extends AppCompatActivity implements  Bill
 
     @Override
     public void onBillingError(int errorCode, @Nullable Throwable error) {
-        Toast.makeText(getApplicationContext(), getResources().getString(R.string.next_time), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), getResources().getString(R.string.next_time), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -110,7 +109,7 @@ public class PanelItemSettingActivity extends AppCompatActivity implements  Bill
 
         String viewIndex = intent.getStringExtra(Constants.CURRENT_ITEM);
         String currentApp = prefs.getString(Constants.LIST_ITEM+"_"+viewIndex+"_action", "");
-        CharSequence[] installedApps = applicationMap.keySet().toArray(new CharSequence[applicationMap.size()]);
+        CharSequence[] installedApps = applicationMap.keySet().toArray(new CharSequence[0]);
 
         builder.setSingleChoiceItems(installedApps, getValueIndex(currentApp, installedApps), (DialogInterface dialog, int which) -> {
             //get the clicked item
@@ -176,7 +175,7 @@ public class PanelItemSettingActivity extends AppCompatActivity implements  Bill
     public void selectNavigationAction(View view) {
 
         String viewIndex = intent.getStringExtra(Constants.CURRENT_ITEM);
-        int viewId =  Integer.valueOf(view.getTag().toString());
+        int viewId =  Integer.parseInt(view.getTag().toString());
         String action = (viewId > 1) ? ( viewId > 2 ? Constants.BACK : Constants.RECENTS) : Constants.HOME;
 
         //update the preferences
@@ -192,7 +191,7 @@ public class PanelItemSettingActivity extends AppCompatActivity implements  Bill
     public void selectUtilityAction(View view) {
 
         String viewIndex = intent.getStringExtra(Constants.CURRENT_ITEM);
-        String action = getActionFromViewId(Integer.valueOf(view.getTag().toString()));
+        String action = getActionFromViewId(Integer.parseInt(view.getTag().toString()));
 
         //update the preferences
         updateItemPreferences(viewIndex, Constants.ACTION_UTILS, action, "");
@@ -206,7 +205,7 @@ public class PanelItemSettingActivity extends AppCompatActivity implements  Bill
     public void selectMediaAction(View view) {
 
         String viewIndex = intent.getStringExtra(Constants.CURRENT_ITEM);
-        String action = getActionFromViewId(Integer.valueOf(view.getTag().toString()));
+        String action = getActionFromViewId(Integer.parseInt(view.getTag().toString()));
 
         //update the preferences
         updateItemPreferences(viewIndex, Constants.ACTION_MEDIA, action, "");
