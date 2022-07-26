@@ -1,24 +1,17 @@
 package com.dharmapoudel.bxpanel.actions;
 
 import android.accessibilityservice.AccessibilityService;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.IBinder;
-import android.os.RemoteException;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 
-import com.dharmapoudel.bxpanel.BxPanelAccessibilityService;
+import com.dharmapoudel.bxpanel.core.BxPanelAccessibilityService;
 import com.dharmapoudel.bxpanel.Constants;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 import static android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_BACK;
-import static android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_RECENTS;
 
 public class NavigateAction implements Action{
     private static final String TAG = NavigateAction.class.getSimpleName();

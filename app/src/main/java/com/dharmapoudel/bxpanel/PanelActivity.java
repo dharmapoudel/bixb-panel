@@ -41,11 +41,10 @@ public class PanelActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent intent = getIntent();
-        if(intent.getExtras() != null || intent.getSourceBounds() != null){
+        Bundle extras = getIntent().getExtras();
+        if(extras == null || !extras.containsKey("INDEX")){
             startActivity(new Intent(this, MainActivity.class));
             finish();
-
         } else {
 
             //init the preference
@@ -82,7 +81,9 @@ public class PanelActivity extends Activity {
             }
 
 
-            currentItem = (startItem - 1);
+            int index = extras.getInt("INDEX");
+            currentItem = (startItem + index) % count;
+
             //remember last position
             boolean rememberLastPosition = prefs.getBoolean(Constants.REMEMBER_LAST_POSITION, true);
             if (rememberLastPosition) {

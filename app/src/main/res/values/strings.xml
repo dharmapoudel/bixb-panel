@@ -53,9 +53,8 @@
     <string name="tips">Before use this Application, you need to use adb tools to grant permission, copy below command and exec it on a PC:\n\n%1$s\n\nOr you can use root to grant permission.</string>
     <string name="root_failure">root permission not granted</string>
 
-
-
-    <string name="accessibility_service_description">This uses accessibility service to provide functions such as recents. If you are not using those functions, this permission is optional.</string>
+    <string name="prominent_disclosure_message">The app uses accessibility service to receive volume key events. It can add action on long and/or double volume button press.</string>
+    <string name="accessibility_service_description">This app uses accessibility service to receive volume key events. If you are not using those functions, this permission is optional.</string>
 
     <string name="support">Support Development</string>
     <string name="support_description">If you enjoy using app consider supporting</string>
